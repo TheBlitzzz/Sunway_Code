@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="436.0" prefWidth="482.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="billSplitter.view.RootLayoutController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem onAction="#handleResetDBMenuItem_OnAction" mnemonicParsing="false" text="Reset Database" />
+                  <MenuItem onAction="#handleCloseMenuItem_OnAction" mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <BorderPane fx:id="contentRoot" BorderPane.alignment="CENTER">
+         <top>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="40.0" spacing="1.0" style="-fx-background-color: White;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label id="title-text" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="200.0" text="Bill Splitter">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handlePayeeListButton_OnAction" prefWidth="200.0" text="Payees" HBox.hgrow="ALWAYS" />
+                  <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleBillListButton_OnAction" prefWidth="200.0" text="Bills" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ListView fx:id="inspectedItemsListView" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                  <Button id="add-button" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleAddButton_OnAction" text="   Add">
+                     <graphic>
+                        <SVGPath content="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2zM19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="WHITE" />
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+      </BorderPane>
+   </center>
+    <stylesheets>
+        <URL value="@/billSplitter/view/Root Layout/RootLayoutStyle.css" />
+        <URL value="@/billSplitter/view/DefaultStyles.css" />
+    </stylesheets>
+</BorderPane>

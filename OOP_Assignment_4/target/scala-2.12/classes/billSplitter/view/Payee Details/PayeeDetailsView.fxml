@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="billSplitter.view.PayeeDetailsController">
+   <content>
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" styleClass="background">
+         <children>
+            <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" spacing="10.0">
+               <children>
+                  <Label fx:id="fullNameLabel" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Ren Hao Wong" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button onAction="#handleEditButton_OnAction" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0">
+                     <graphic>
+                        <SVGPath content="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z" fill="WHITE" />
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+            <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="20.0" visible="false" />
+            <VBox maxWidth="1.7976931348623157E308">
+               <children>
+                  <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" spacing="25.0">
+                     <children>
+                        <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" text="First Name" />
+                              <Label fx:id="firstNameLabel" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="details-field" text="">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label maxWidth="1.7976931348623157E308" text="Last Name" />
+                              <Label fx:id="lastNameLabel" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" styleClass="details-field" text="">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Separator maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="10.0" visible="false" />
+                  <Label maxWidth="1.7976931348623157E308" text="Notes" />
+                  <TextArea fx:id="notesTextArea" editable="false" maxWidth="1.7976931348623157E308" prefRowCount="2" text="" wrapText="true" />
+               </children>
+            </VBox>
+         </children>
+         <stylesheets>
+            <URL value="@/billSplitter/view/DefaultStyles.css" />
+         </stylesheets>
+         <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane>

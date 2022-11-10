@@ -1,0 +1,78 @@
+// https://stackoverflow.com/questions/24702542/how-to-change-the-color-of-text-in-javafx-textfield
+* {
+    -fx-text-fill : #ffffff;
+}
+
+.background, .background > .viewport  {
+    -fx-background-color : #222222;
+}
+
+.details-field {
+    -fx-background-color : #666666;
+    -fx-background-radius : 2;
+}
+
+.button {
+    -fx-background-color : #444444;
+    -fx-background-radius : 0;
+}
+
+.menu-bar {
+    -fx-background-color : #222222;
+}
+
+// https://stackoverflow.com/questions/21912946/how-can-i-style-a-javafx-menu-and-its-items-in-css
+.menu-item .label {
+    -fx-text-fill: black
+}
+
+
+// Inputs
+.text-field, .date-picker {
+    -fx-background-color : #666666;
+}
+
+//https://www.b4x.com/android/forum/threads/textarea-how-to-set-background-color.100873/
+.text-area {
+    -fx-control-inner-background : #666666;
+}
+
+.text-field:disabled, .text-area:disabled, .date-picker:disabled {
+    -fx-opacity : 0.8;
+}
+
+
+// Lists and Tables
+.list-view {
+    -fx-background-color: #444444;
+}
+
+.list-cell {
+    -fx-background-color: #444444;
+}
+
+.list-cell:selected {
+    -fx-background-color: #888888;
+}
+
+// https://edencoding.com/style-tableview-javafx/
+.table-view, .table-view .table-cell, .table-view .table-row-cell {
+    -fx-background-color: #444444;
+}
+
+.table-view .table-cell:odd, .table-view .table-row-cell:odd {
+    -fx-background-color: #333333;
+}
+
+.table-view .column-header {
+    -fx-background-color: #666666;
+}
+
+// https://dx.dragan.ba/javafx-datepicker-custom-css/
+.date-picker-popup {
+    -fx-control-inner-background: #444444;
+}
+
+.date-picker-popup .month-year-pane {
+	-fx-background-color: #444444;
+}
