@@ -1,40 +1,101 @@
-import java.io.{DataInputStream, DataOutputStream}
-import java.net. {ServerSocket, Socket}
+import java.io.{BufferedReader, DataInputStream, DataOutputStream, InputStreamReader}
+import java.net.{ServerSocket, Socket}
 import scala.io.{BufferedSource, Source}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{ExecutionContext, Future}
+import scala.io.StdIn.readLine
+import scala.util.control.Breaks.{break, breakable}
 
 object MyServer extends App {
-  print ("Hello World")
-}
+  val msg_error_clientAbruptDisconnection = "Client disconnected abruptly"
 
-//object PriceServer extends App {
-//  val server = new ServerSocket(1000)
-//  //open server socket
-//
-//  while (true) {
-//    // create thread with client socket as parameter and remove it once service is provided
-//    val client: Socket = server.accept()
-//    // wait for client request
-//
-//    Future({
-//      //store local socket references for processing
-//      val is = new DataInputStream(client.getInputStream())
-//      val os = new DataOutputStream(client.getOutputStream())
-//      //create I/O streams to communicate to the client
-//
-//      val line: String = is.readLine()
-//
-//      def execute (txt: => Unit): Unit = ExecutionContext.global.execute( new Runnable {def run(): Unit = txt})
-//
-//      execute {
-//        val file:BufferedSource = Source.fromFile("price.txt")
-//        val lines = file.getLines.toList
-//        val datas = lines.map(x => x.split(",")).map(xs => ((xs(0), xs(1).toDouble))).toMap
-//
-//          }
-//      })
-//    client.close()
-//
-//  }
-//}
+  println("Starting server")
+  val server = new ServerSocket(1000)
+  println("Server started\n")
+
+  println("Reading prices from file")
+  // Get the book prices first
+  val bufferedSource = io.Source.fromFile("src/main/resources/price.txt")
+  val lines = bufferedSource.getLines
+  val bookPricesMap = lines.map(_.split(",").map(_.trim)).map(x => (x(0), x(1).toDouble)).toMap
+  bufferedSource.close()
+  println("File read\n")
+
+  println("Accepting clients")
+  processSocket(server.accept())
+
+  runMenu()
+
+  def processSocket(client: Socket): Unit = {
+    Future({
+      clientSession(client)
+    })
+    Future(processSocket(server.accept()))
+  }
+
+  private def clientSession(client: Socket): Unit = {
+    // val inStream = new DataInputStream(client.getInputStream)
+    val outStream = new DataOutputStream(client.getOutputStream)
+    val inReader = new BufferedReader(new InputStreamReader(client.getInputStream))
+
+    // Client connection print
+    print(inReader.readLine())
+    outStream.writeBytes("Connection established\n")
+
+    breakable {
+      while (true) {
+        // Read the messages from the clients
+        // Found the new version of readline since it's depreciated https://docs.oracle.com/javase/7/docs/api/java/io/DataInputStream.html
+        Option(inReader.readLine().trim.toLowerCase) match {
+          case Some(x) =>
+            x match {
+              case "w" =>
+                println("Client is talking")
+                talkToClient(inReader)
+                println("Client stopped talking")
+              case "c" =>
+                println("Client is looking up the price of a book")
+                checkPrice(inReader, outStream)
+                println("Client has stopped looking up books")
+              case "d" =>
+                println("Client disconnected")
+                client.close()
+                break
+            }
+          case None =>
+            println(msg_error_clientAbruptDisconnection)
+            client.close()
+            break
+        }
+      }
+    }
+  }
+
+  def runMenu(): Unit = {
+    readLine("Enter any key to exit\n")
+    server.close()
+  }
+
+  private def talkToClient(inReader: BufferedReader): Unit = {
+    while (true) {
+      Option(inReader.readLine()) match {
+        case Some(message) =>
+          if (message == "\\x" | message.isBlank) {
+            return
+          } else {
+            println(s"Received '$message' from client")
+          }
+        case None =>
+          println(msg_error_clientAbruptDisconnection)
+      }
+    }
+  }
+
+  private def checkPrice(inReader: BufferedReader, outStream: DataOutputStream): Unit = {
+    val isbnCode = inReader.readLine()
+    println(s"Client entered '$isbnCode'")
+    val price = bookPricesMap(isbnCode)
+    println(s"Price of $isbnCode is $price")
+    outStream.writeDouble(price)
+  }
+}
