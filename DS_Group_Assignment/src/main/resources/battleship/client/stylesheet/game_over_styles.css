@@ -1,0 +1,50 @@
+.root {
+    -fx-background-image: url("../images/blurred_musashi.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: stretch;
+}
+
+.game-over-title-text {
+    -fx-font-size : 72.0;
+    -fx-font-family : Orbitron;
+    -fx-text-fill : white;
+}
+
+.game-over-body-text {
+    -fx-font-size : 20.0;
+    -fx-font-family : Orbitron;
+    -fx-text-fill : white;
+
+    -fx-background-color: rgba(10, 20, 20, 0.4);
+    -fx-background-insets : 0px;
+}
+
+.game-over-back-button {
+    -fx-background-color : #ff1010;
+    -fx-text-fill : white;
+    -fx-font-size : 16.0;
+    -fx-pref-width : 300.0;
+    -fx-pref-height : 50.0;
+}
+
+.game-over-back-button1 {
+    -fx-background-color : #ff1010;
+    -fx-text-fill : white;
+    -fx-font-size : 16.0;
+    -fx-pref-width : 90.0;
+    -fx-pref-height : 30.0;
+    -fx-translate-x : 20.0;
+    -fx-translate-y : 20.0;
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}

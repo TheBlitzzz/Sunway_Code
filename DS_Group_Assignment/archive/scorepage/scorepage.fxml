@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@score-board-style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onAction="#handleBackBtnOnAction" styleClass="score-back-button" text="Back" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+      </Button>
+      <VBox alignment="TOP_CENTER" maxWidth="-Infinity" prefHeight="200.0" prefWidth="350.0">
+         <children>
+            <Label fx:id="victoryLabel" alignment="TOP_CENTER" layoutX="300.0" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="victory-title" text="VICTORY">
+               <padding>
+                  <Insets bottom="15.0" top="20.0" />
+               </padding>
+            </Label>
+            <ListView fx:id="scoreBoard" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="150.0" prefWidth="300.0" styleClass="score-list-view" stylesheets="@score-board-style.css" />
+            <Button mnemonicParsing="false" onAction="#handleRestartGameBtnOnAction" styleClass="score-restart-button" text="Restart">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

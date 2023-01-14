@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="battleship.client.view.dialogs.RoomInfoDialog"
+            prefHeight="300.0" prefWidth="650.0">
+    <header>
+        <HBox alignment="BOTTOM_CENTER" prefHeight="50.0">
+            <Label text="Create Room" styleClass="title-text"/>
+            <padding>
+                <Insets left="50.0" right="50.0" />
+            </padding>
+        </HBox>
+    </header>
+    <content>
+        <VBox prefWidth="400.0" spacing="20.0" alignment="CENTER">
+            <VBox>
+                <Label text="Room name" styleClass="heading-text"/>
+                <TextField fx:id="roomNameReadOnlyTextField" editable="false"/>
+                <Label text="Server at" styleClass="heading-text"/>
+                <TextField fx:id="serverAddressReadOnlyTextField" editable="false"/>
+                <Label text="Players" styleClass="heading-text"/>
+                <TableView fx:id="playerTableView">
+                    <columns>
+                        <TableColumn fx:id="playerUsernameColumn" text="Username"/>
+                    </columns>
+                </TableView>
+            </VBox>
+            <HBox alignment="CENTER_RIGHT" spacing="20.0">
+                <Button onAction="#handleCancelBtnOnClick" styleClass="dialog-cancel-button" text="Cancel" />
+                <Button onAction="#handleJoinBtnOnClick" fx:id="joinBtn" styleClass="dialog-join-button" text="Join" />
+            </HBox>
+            <padding>
+                <Insets left="50.0" right="50.0" />
+            </padding>
+        </VBox>
+    </content>
+    <stylesheets>
+        <URL value="@/battleship/stylesheet/default_styles.css" />
+        <URL value="@/battleship/client/stylesheet/dialog_styles.css" />
+    </stylesheets>
+</DialogPane>

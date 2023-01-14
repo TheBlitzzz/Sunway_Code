@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/15"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="battleship.client.view.LobbyView"
+           fx:id="rootPane"
+           prefHeight="600.0" prefWidth="1000.0">
+    <HBox spacing="50.0">
+        <VBox spacing="20.0">
+            <VBox alignment="CENTER" prefWidth="650.0" spacing="20.0">
+                <Label styleClass="title-text" text="Players in the Lobby" />
+                <TreeTableView fx:id="roomTreeTableView" showRoot="false">
+                    <columns>
+                        <TreeTableColumn fx:id="roomNameColumn" prefWidth="150.0" text="Room" />
+                        <TreeTableColumn fx:id="roomClientUsernameColumn" prefWidth="300.0" text="Player" />
+                        <TreeTableColumn fx:id="roomClientIpColumn" prefWidth="200.0" text="IP Address" />
+                    </columns>
+                </TreeTableView>
+            </VBox>
+            <HBox alignment="CENTER_RIGHT" spacing="20.0">
+                <Button onAction="#handleCreateRoomBtnOnAction" fx:id="createRoomBtn" styleClass="lobby-button" text="Create Room" />
+                <Button onAction="#handleRoomInfoBtnOnAction" fx:id="roomInfoBtn" styleClass="lobby-button" text="Room Info" disable="true"/>
+                <Button onAction="#handleLeaveRoomBtnOnAction" fx:id="leaveRoomBtn" styleClass="lobby-button" text="Leave Room" disable="true"/>
+            </HBox>
+        </VBox>
+        <VBox alignment="TOP_CENTER" prefWidth="200.0" spacing="20.0">
+            <VBox>
+                <Label styleClass="bold-text" text="Server IP Address" />
+                <TextField fx:id="serverAddressReadOnlyTextField" editable="false" styleClass="copyable-label" />
+            </VBox>
+            <VBox>
+                <Label styleClass="bold-text" text="Ip Address" />
+                <TextField fx:id="localAddressReadOnlyTextField" editable="false" styleClass="copyable-label" />
+            </VBox>
+            <VBox>
+                <Label styleClass="bold-text" text="Username" />
+                <TextField fx:id="usernameReadOnlyTextField" editable="false" styleClass="copyable-label" />
+            </VBox>
+            <VBox>
+                <Label styleClass="bold-text" text="Room joined" />
+                <TextField fx:id="joinedRoomReadOnlyTextField" editable="false" styleClass="copyable-label" />
+            </VBox>
+            <TextArea fx:id="lobbyEventReadOnlyTextArea" editable="false" styleClass="lobby-event-text-area" wrapText="true" />
+        </VBox>
+        <StackPane.margin>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+        </StackPane.margin>
+    </HBox>
+    <Button onAction="#handleBackBtnOnAction" styleClass="lobby-back-button" text="Back" StackPane.alignment="TOP_LEFT" />
+   <stylesheets>
+      <URL value="@/battleship/stylesheet/default_styles.css" />
+      <URL value="@/battleship/client/stylesheet/lobby_styles.css" />
+   </stylesheets>
+</StackPane>

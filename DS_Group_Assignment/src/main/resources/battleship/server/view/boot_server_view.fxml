@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="battleship.server.view.BootServerView"
+           prefHeight="600.0" prefWidth="900.0">
+    <HBox alignment="CENTER_LEFT" prefHeight="Infinity" spacing="20.0">
+        <VBox spacing="10.0">
+            <GridPane HBox.hgrow="ALWAYS" hgap="10.0" vgap="10.0">
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" prefWidth="350">
+                    <Label text="IP Address" styleClass="bold-text"/>
+                    <Label text="(Defaults to the loopback address, override if using VPN)" styleClass="hint-label"/>
+                </VBox>
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="200">
+                    <ComboBox fx:id="ipAddressComboBox" prefWidth="200"/>
+                </VBox>
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <Label text="Port" styleClass="bold-text"/>
+                    <Label text="(Defaults to 2551 if given invalid port number)" styleClass="hint-label"/>
+                </VBox>
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <TextField fx:id="portTextField"/>
+                </VBox>
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <Label text="Join specific cluster" styleClass="bold-text"/>
+                    <Label text="(Defaults to creating its own cluster)" styleClass="hint-label"/>
+                </VBox>
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <TextField fx:id="clusterAddressTextField"/>
+                </VBox>
+            </GridPane>
+            <VBox>
+                <Label text="Server Status" styleClass="bold-text"/>
+                <Label text="(is the server Running?)" styleClass="hint-label"/>
+                <TextField fx:id="serverStatusReadOnlyTextField" editable="false" styleClass="copyable-label"/>
+            </VBox>
+        </VBox>
+        <FlowPane alignment="TOP_CENTER" hgap="10.0" prefWrapLength="200.0" vgap="10.0">
+            <Button fx:id="startServerBtn" onAction="#handleStartServerBtnOnAction" text="Start Server"
+                    styleClass="main-menu-button"/>
+            <Button fx:id="stopServerBtn" onAction="#handleStopServerBtnOnAction" text="Stop Server"
+                    styleClass="main-menu-button"/>
+        </FlowPane>
+        <StackPane.margin>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+        </StackPane.margin>
+    </HBox>
+    <stylesheets>
+        <URL value="@/battleship/server/stylesheet/main_menu_styles.css"/>
+        <URL value="@/battleship/stylesheet/default_styles.css"/>
+    </stylesheets>
+</StackPane>

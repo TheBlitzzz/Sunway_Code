@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="battleship.server.view.ServerClusterView"
+           prefHeight="600.0" prefWidth="900.0">
+    <VBox alignment="CENTER" spacing="20">
+        <VBox alignment="CENTER" spacing="5.0">
+            <Label text="Connections in cluster" styleClass="title-text"/>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                <Label text="Server Address"/>
+                <TextField fx:id="serverAddressReadOnlyTextField" editable="false" styleClass="copyable-label"
+                           HBox.hgrow="ALWAYS"/>
+            </HBox>
+            <TableView fx:id="connectionsTableView">
+                <columns>
+                    <TableColumn fx:id="connectionsTableIpAddressCol" text="IP Address" prefWidth="250.0"/>
+                    <TableColumn fx:id="connectionsTablePortCol" text="Port" prefWidth="100.0"/>
+                    <TableColumn fx:id="connectionsTableTimeJoinedCol" text="Time Joined" prefWidth="300.0"/>
+                </columns>
+            </TableView>
+        </VBox>
+        <HBox alignment="CENTER_LEFT" spacing="20.0">
+            <GridPane hgap="10.0" vgap="10.0">
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" prefWidth="100">
+                    <Label text="IP Address" styleClass="bold-text"/>
+                </VBox>
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="200">
+                    <TextField fx:id="remoteIpReadOnlyTextField" editable="false" styleClass="copyable-label"/>
+                </VBox>
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <Label text="Port" styleClass="bold-text"/>
+                </VBox>
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <TextField fx:id="remotePortReadOnlyTextField" editable="false" styleClass="copyable-label"/>
+                </VBox>
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <Label text="Time Joined" styleClass="bold-text"/>
+                </VBox>
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <TextField fx:id="remoteTimeJoinedReadOnlyTextField" editable="false" styleClass="copyable-label"/>
+                </VBox>
+            </GridPane>
+<!--            <FlowPane alignment="TOP_CENTER" hgap="10.0" prefWrapLength="200.0" vgap="10.0">-->
+<!--                <Button onAction="#handleGetServerInfoBtnOnAction" text="Get Server Info"-->
+<!--                        styleClass="main-menu-button"/>-->
+<!--            </FlowPane>-->
+        </HBox>
+        <StackPane.margin>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+        </StackPane.margin>
+    </VBox>
+    <stylesheets>
+        <URL value="@/battleship/server/stylesheet/main_menu_styles.css"/>
+        <URL value="@/battleship/stylesheet/default_styles.css"/>
+    </stylesheets>
+</StackPane>

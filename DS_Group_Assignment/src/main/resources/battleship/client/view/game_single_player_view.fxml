@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import java.net.URL?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.Group?>
+<?import java.lang.String?>
+<?import javafx.scene.control.TextArea?>
+<StackPane xmlns="http://javafx.com/javafx/15"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="battleship.client.view.GameView"
+           fx:id="rootPane"
+           prefHeight="600.0" prefWidth="1000.0">
+    <VBox fx:id="gridContainer1" maxWidth="400.0" maxHeight="400.0" StackPane.alignment="TOP_LEFT"
+          translateX="60.0" translateY="70.0"/>
+    <VBox fx:id="gridContainer2" maxWidth="400.0" maxHeight="400.0" StackPane.alignment="TOP_RIGHT"
+          translateX="-60.0" translateY="70.0"/>
+    <HBox fx:id="battleshipPlacementControlPanel" maxHeight="100.0" StackPane.alignment="BOTTOM_CENTER" spacing="10.0" visible="false">
+        <Button onAction="#handleMoveWarshipLeftBtnOnAction" styleClass="move-btn">
+            <graphic>
+                <SVGPath content="M-15 8.25l3.75-3.75q.75-.75 0-1.5l-1.5-1.5q-.75-.75-1.5 0l-12 12 12 12q.75.75 1.5 0l1.5-1.5q.75-.75 0-1.5l-3.75-3q-3-3.3 1.5-3.3l9.75 0q1.5.525 0 1.05l0 0-9.75 0q-2.25 0-.75 1.5l3.75 3q1.5 1.5 0 3l-1.5 1.5q-1.5 1.5-3 0l-12-12q-.75-.75 0-1.5l12-12q1.5-1.5 3 0l1.5 1.5q1.5 1.5 0 3l-3.75 3.75q-1.5 1.5.75 1.5l12.75 0q1.5.525 0 1.05l-12.75 0q-4.5 0-1.5-3.3z"/>
+            </graphic>
+        </Button>
+        <Button onAction="#handleMoveWarshipRightBtnOnAction" styleClass="move-btn">
+            <graphic>
+                <SVGPath content="M15 8.25l-3.75-3.75q-.75-.75 0-1.5l1.5-1.5q.75-.75 1.5 0l12 12-12 12q-.75.75-1.5 0l-1.5-1.5q-.75-.75 0-1.5l3.75-3q3-3.3-1.5-3.3l-9.75 0q-1.5.525 0 1.05l0 0 9.75 0q2.25 0 .75 1.5l-3.75 3q-1.5 1.5 0 3l1.5 1.5q1.5 1.5 3 0l12-12q.75-.75 0-1.5l-12-12q-1.5-1.5-3 0l-1.5 1.5q-1.5 1.5 0 3l3.75 3.75q1.5 1.5-.75 1.5l-12.75 0q-1.5.525 0 1.05l12.75 0q4.5 0 1.5-3.3z"/>
+            </graphic>
+        </Button>
+        <Button onAction="#handleMoveWarshipUpBtnOnAction" styleClass="move-btn">
+            <graphic>
+                <SVGPath rotate="-90" content="M-15 8.25l3.75-3.75q.75-.75 0-1.5l-1.5-1.5q-.75-.75-1.5 0l-12 12 12 12q.75.75 1.5 0l1.5-1.5q.75-.75 0-1.5l-3.75-3q-3-3.3 1.5-3.3l9.75 0q1.5.525 0 1.05l0 0-9.75 0q-2.25 0-.75 1.5l3.75 3q1.5 1.5 0 3l-1.5 1.5q-1.5 1.5-3 0l-12-12q-.75-.75 0-1.5l12-12q1.5-1.5 3 0l1.5 1.5q1.5 1.5 0 3l-3.75 3.75q-1.5 1.5.75 1.5l12.75 0q1.5.525 0 1.05l-12.75 0q-4.5 0-1.5-3.3z"/>
+            </graphic>
+        </Button>
+        <Button onAction="#handleMoveWarshipDownBtnOnAction" styleClass="move-btn">
+            <graphic>
+                <SVGPath rotate="90" content="M-15 8.25l3.75-3.75q.75-.75 0-1.5l-1.5-1.5q-.75-.75-1.5 0l-12 12 12 12q.75.75 1.5 0l1.5-1.5q.75-.75 0-1.5l-3.75-3q-3-3.3 1.5-3.3l9.75 0q1.5.525 0 1.05l0 0-9.75 0q-2.25 0-.75 1.5l3.75 3q1.5 1.5 0 3l-1.5 1.5q-1.5 1.5-3 0l-12-12q-.75-.75 0-1.5l12-12q1.5-1.5 3 0l1.5 1.5q1.5 1.5 0 3l-3.75 3.75q-1.5 1.5.75 1.5l12.75 0q1.5.525 0 1.05l-12.75 0q-4.5 0-1.5-3.3z"/>
+            </graphic>
+        </Button>
+        <Button onAction="#handleRotateWarshipBtnOnAction" styleClass="move-btn">
+            <graphic>
+                <SVGPath content="M25 44A1 1 0 005 44L5 46Q5 47 4 47L3 47Q2 47 2 46L2 44A1 1 0 0128 44C28 55 18 55 16 55L19 57Q19 59 17 59L11 55Q8.5 53.5 11 52L17 48Q19 48 19 50L16 52C21 52 25 50 25 44z"/>
+            </graphic>
+        </Button>
+        <Button onAction="#handleReadyBtnOnAction" text="Ready" styleClass="begin-game-btn"/>
+        <padding>
+            <Insets left="60.0" right="60.0" bottom="40.0"/>
+        </padding>
+    </HBox>
+    <HBox fx:id="battleshipFireControlPanel" maxHeight="100.0" StackPane.alignment="BOTTOM_CENTER" spacing="10.0" visible="false">
+        <TextArea fx:id="gameEventReadOnlyTextArea" editable="false" prefRowCount="5" wrapText="true"
+                  styleClass="game-event-text-area"/>
+        <padding>
+            <Insets left="60.0" right="60.0" bottom="40.0"/>
+        </padding>
+    </HBox>
+    <Button onAction="#handleBackBtnOnAction" text="Back" StackPane.alignment="TOP_LEFT" prefWidth="100" prefHeight="30"
+            translateY="20" translateX="20"/>
+    <stylesheets>
+        <URL value="@/battleship/client/stylesheet/game_styles.css"/>
+        <URL value="@/battleship/stylesheet/default_styles.css"/>
+    </stylesheets>
+</StackPane>

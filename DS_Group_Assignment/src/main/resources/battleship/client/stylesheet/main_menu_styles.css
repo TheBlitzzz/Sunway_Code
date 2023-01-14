@@ -1,0 +1,36 @@
+.root {
+    -fx-background-image: url("../images/battle_of_jutland.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: stretch;
+}
+
+.label {
+    -fx-text-fill : white;
+}
+
+.main-menu-title-text {
+    -fx-font-size : 72.0;
+    -fx-font-family : Orbitron;
+}
+
+.main-menu-start-online-button {
+    -fx-font-size : 16.0;
+    -fx-pref-width : 150.0;
+    -fx-pref-height : 50.0;
+}
+
+.main-menu-start-local-button {
+    -fx-font-size : 16.0;
+    -fx-pref-width : 300.0;
+    -fx-pref-height : 50.0;
+}
+
+.main-menu-exit-button {
+    -fx-text-fill : white;
+    -fx-font-size : 16.0;
+    -fx-pref-width : 90.0;
+    -fx-pref-height : 30.0;
+    -fx-background-color : #ff1010;
+    -fx-translate-x : -20.0;
+    -fx-translate-y : 20.0;
+ }

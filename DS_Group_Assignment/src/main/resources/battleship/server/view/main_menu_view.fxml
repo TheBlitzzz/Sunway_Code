@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/15"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="mainBorderPane"
+            fx:controller="battleship.server.view.MainMenuView"
+            prefHeight="600.0" prefWidth="1000.0">
+    <left>
+        <StackPane>
+            <VBox styleClass="main-menu-tab-bg-panel">
+                <Button onAction="#handleBootServerBtnOnAction" styleClass="main-menu-tab-button"
+                        text="Boot Server"/>
+                <Button onAction="#handleViewServersBtnOnAction" styleClass="main-menu-tab-button"
+                        text="Server"/>
+                <Button onAction="#handleViewClientsBtnOnAction" styleClass="main-menu-tab-button"
+                        text="Clients"/>
+            </VBox>
+            <Button onAction="#handleExitBtnOnAction" text="Exit" styleClass="main-menu-exit-button"
+                    StackPane.alignment="BOTTOM_LEFT"/>
+            <VBox fx:id="mainTabIndicatorVbox" StackPane.alignment="TOP_LEFT">
+                <styleClass>
+                    <String fx:value="main-menu-tab-indicator"/>
+                    <String fx:value="indicator-boot-pos"/>
+                </styleClass>
+            </VBox>
+        </StackPane>
+    </left>
+    <stylesheets>
+        <URL value="@/battleship/server/stylesheet/main_menu_styles.css"/>
+        <URL value="@/battleship/stylesheet/default_styles.css"/>
+    </stylesheets>
+</BorderPane>

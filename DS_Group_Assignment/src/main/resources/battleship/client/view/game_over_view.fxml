@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="battleship.client.view.GameOverView"
+           fx:id="rootPane"
+           prefHeight="600.0" prefWidth="1000.0">
+    <VBox alignment="CENTER" StackPane.alignment="CENTER" spacing="20.0">
+        <Label fx:id="gameOverTitleLabel" text="GAME OVER" styleClass="game-over-title-text"/>
+        <HBox maxWidth="500.0">
+            <TextArea fx:id="metricsTitleTextArea" prefWidth="200.0" editable="false" styleClass="game-over-body-text" wrapText="true"/>
+            <TextArea fx:id="metricsValueTextArea" prefWidth="300.0" editable="false" styleClass="game-over-body-text" wrapText="true"/>
+        </HBox>
+        <Button onAction="#handleBackBtnOnAction" styleClass="game-over-back-button" text="Back to Main Menu" />
+        <padding>
+            <Insets top="75.0" bottom="75.0"/>
+        </padding>
+    </VBox>
+    <stylesheets>
+        <URL value="@/battleship/stylesheet/default_styles.css"/>
+        <URL value="@/battleship/client/stylesheet/game_over_styles.css"/>
+    </stylesheets>
+</StackPane>

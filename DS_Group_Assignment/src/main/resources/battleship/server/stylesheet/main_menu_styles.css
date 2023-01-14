@@ -1,0 +1,46 @@
+.main-menu-button {
+    -fx-font-size : 16;
+    -fx-pref-width : 200;
+    -fx-pref-height : 30;
+}
+
+.main-menu-tab-button {
+    -fx-font-size : 16;
+    -fx-pref-width : 150;
+    -fx-pref-height : 60;
+    -fx-text-fill : white;
+    -fx-background-color: #606060;
+}
+
+.main-menu-tab-bg-panel {
+    -fx-background-color: #606060;
+}
+
+.main-menu-tab-indicator {
+    -fx-background-color: white;
+    -fx-max-width : 5;
+    -fx-max-height : 30;
+    -fx-translate-x : 8;
+}
+
+.indicator-boot-pos {
+    -fx-translate-y : 15;
+}
+
+.indicator-server-pos {
+    -fx-translate-y : 75;
+}
+
+.indicator-client-pos {
+    -fx-translate-y : 135;
+}
+
+.main-menu-exit-button {
+    -fx-background-color : #ff1010;
+    -fx-text-fill : white;
+    -fx-font-size : 16;
+    -fx-pref-width : 90;
+    -fx-pref-height : 30;
+    -fx-translate-x : 15;
+    -fx-translate-y : -20;
+ }

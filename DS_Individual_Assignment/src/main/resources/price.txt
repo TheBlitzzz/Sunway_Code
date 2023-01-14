@@ -1,0 +1,9 @@
+1250773024, 13.50, Ender's Game
+1454944218, 25.00, Dracula
+0143131842, 9.00, Frankenstein: The 1818 Text
+1451673310, 8.30, Fahrenheit 451
+0451524934, 7.50, 1984
+1946963445, 5.50, Animal Farm
+0451530659, 6.00, War of The Worlds
+1951570316, 10.00, Journey to the Centre of the Earth
+0544003411, 18.20, Lord of the Rings

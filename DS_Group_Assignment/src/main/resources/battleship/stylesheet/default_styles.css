@@ -1,0 +1,22 @@
+.root {
+    -fx-font-family : "Orbitron";
+}
+
+.title-text {
+    -fx-font-size : 16;
+    -fx-font-weight : 700;
+}
+
+.bold-text {
+    -fx-font-weight : 700;
+}
+
+.hint-label {
+    -fx-font-size : 10;
+}
+
+// https://stackoverflow.com/questions/22534067/copiable-label-textfield-labeledtext-in-javafx
+.copyable-label, .copyable-label:focused {
+    -fx-background-color : #ffffff;
+    -fx-background-insets : 0px;
+}

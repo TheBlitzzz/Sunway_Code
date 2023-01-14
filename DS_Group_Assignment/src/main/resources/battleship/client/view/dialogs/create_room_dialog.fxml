@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane xmlns="http://javafx.com/javafx/15"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="battleship.client.view.dialogs.CreateRoomDialog"
+            prefHeight="300.0" prefWidth="450.0">
+    <header>
+        <HBox alignment="BOTTOM_CENTER" prefHeight="50.0">
+            <Label text="Create Room" styleClass="title-text"/>
+            <padding>
+                <Insets left="50.0" right="50.0" />
+            </padding>
+        </HBox>
+    </header>
+    <content>
+        <VBox prefWidth="400.0" spacing="20.0" alignment="CENTER">
+            <VBox>
+                <Label text="Room name" styleClass="heading-text"/>
+                <TextField fx:id="roomNameTextField" />
+                <TextField fx:id="errorReadOnlyTextField" editable="false" styleClass="text-field-error-label" />
+            </VBox>
+            <HBox alignment="CENTER_RIGHT" spacing="20.0">
+                <Button onAction="#handleCancelBtnOnClick" styleClass="dialog-cancel-button" text="Cancel" />
+                <Button onAction="#handleCreateBtnOnClick" styleClass="dialog-apply-button" text="Create" />
+            </HBox>
+            <padding>
+                <Insets left="50.0" right="50.0" />
+            </padding>
+        </VBox>
+    </content>
+    <stylesheets>
+        <URL value="@/battleship/stylesheet/default_styles.css" />
+        <URL value="@/battleship/client/stylesheet/dialog_styles.css" />
+    </stylesheets>
+</DialogPane>

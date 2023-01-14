@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.shape.Rectangle?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:id="rootPane"
+           fx:controller="battleship.client.view.nodes.FleetGridView"
+           prefHeight="300.0" prefWidth="300.0">
+    <Canvas fx:id="canvas" StackPane.alignment="CENTER" onMouseClicked="#handleCanvasOnMouseClicked"
+            onMouseEntered="#handleCanvasOnMouseEntered" onMouseMoved="#handleCanvasOnMouseMoved"
+            onMouseExited="#handleCanvasOnMouseExited"/>
+    <Rectangle fx:id="indicatorRect" StackPane.alignment="TOP_LEFT" mouseTransparent="true" visible="false"/>
+</StackPane>

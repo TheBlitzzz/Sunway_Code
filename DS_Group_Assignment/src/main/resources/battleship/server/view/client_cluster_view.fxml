@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="battleship.server.view.ClientClusterView"
+           prefHeight="600.0" prefWidth="900.0">
+    <VBox alignment="CENTER" spacing="20.0">
+        <Label text="Clients in cluster" styleClass="title-text"/>
+        <TableView fx:id="connectionsTableView">
+            <columns>
+                <TableColumn fx:id="connectionsTableUsernameCol" text="Username" prefWidth="150.0"/>
+                <TableColumn fx:id="connectionsTableIpAddressCol" text="IP Address" prefWidth="250.0"/>
+                <TableColumn fx:id="connectionsTablePortCol" text="Port" prefWidth="75.0"/>
+                <TableColumn fx:id="connectionsTableTimeJoinedCol" text="Time Joined" prefWidth="150.0"/>
+            </columns>
+        </TableView>
+        <HBox alignment="CENTER_LEFT" spacing="20.0">
+            <GridPane hgap="10.0" vgap="10.0">
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="0" prefWidth="100">
+                    <Label text="Username" styleClass="bold-text"/>
+                </VBox>
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="200">
+                    <TextField fx:id="clientUsernameReadOnlyTextField" editable="false" styleClass="copyable-label"
+                               HBox.hgrow="ALWAYS"/>
+                </VBox>
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <Label text="IP Address" styleClass="bold-text"/>
+                </VBox>
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <TextField fx:id="clientIpReadOnlyTextField" editable="false" styleClass="copyable-label"
+                               HBox.hgrow="ALWAYS"/>
+                </VBox>
+                <VBox GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <Label text="Port" styleClass="bold-text"/>
+                </VBox>
+                <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <TextField fx:id="clientPortReadOnlyTextField" editable="false" styleClass="copyable-label"
+                               HBox.hgrow="ALWAYS"/>
+                </VBox>
+            </GridPane>
+<!--            <FlowPane alignment="TOP_CENTER" hgap="10.0" prefWrapLength="200.0" vgap="10.0">-->
+<!--                <Button onAction="#handleGetClientInfoBtnOnAction" styleClass="main-menu-button">-->
+<!--                    Get Client Info-->
+<!--                </Button>-->
+<!--                <Button onAction="#handleKickClientBtnOnAction" styleClass="main-menu-button">-->
+<!--                    Kick Client-->
+<!--                </Button>-->
+<!--            </FlowPane>-->
+        </HBox>
+        <StackPane.margin>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+        </StackPane.margin>
+    </VBox>
+    <stylesheets>
+        <URL value="@/battleship/server/stylesheet/main_menu_styles.css"/>
+        <URL value="@/battleship/stylesheet/default_styles.css"/>
+    </stylesheets>
+</StackPane>

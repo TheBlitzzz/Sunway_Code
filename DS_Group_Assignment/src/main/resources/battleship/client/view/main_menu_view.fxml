@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.InnerShadow?>
+<StackPane xmlns="http://javafx.com/javafx/15"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="battleship.client.view.MainMenuView"
+           fx:id="rootPane"
+           prefHeight="600.0" prefWidth="1000.0">
+    <HBox alignment="TOP_CENTER" maxHeight="75.0" spacing="20.0" StackPane.alignment="BOTTOM_CENTER">
+        <VBox prefWidth="200.0">
+            <Label text="Seed Node Address" styleClass="bold-text"/>
+            <Label text="(Include the port number)" styleClass="hint-label"/>
+            <TextField fx:id="seedNodeAddressTextField"/>
+        </VBox>
+        <VBox prefWidth="200.0">
+            <Label text="Local IP Address" styleClass="bold-text"/>
+            <Label text="(Override if using VPN)" styleClass="hint-label"/>
+            <ComboBox fx:id="localAddressComboBox" prefWidth="200"/>
+        </VBox>
+        <VBox prefWidth="200.0">
+            <Label text="Local Port" styleClass="bold-text"/>
+            <Label text="(The game binds to this port)" styleClass="hint-label"/>
+            <TextField fx:id="localPortTextField"/>
+        </VBox>
+        <VBox prefWidth="200.0">
+            <Label text="Username" styleClass="bold-text"/>
+            <Label text="(How others will see you)" styleClass="hint-label"/>
+            <TextField fx:id="usernameTextField"/>
+        </VBox>
+        <Button onAction="#handleStartOnlineBtnOnAction" text="Multiplayer" styleClass="main-menu-start-online-button"/>
+        <padding>
+            <Insets left="50.0" right="50.0"/>
+        </padding>
+    </HBox>
+    <VBox alignment="CENTER" maxHeight="200">
+        <Label fx:id="gameTitleLabel" text="BATTLESHIP" styleClass="main-menu-title-text"/>
+<!--        <Button onAction="#handleStartLocalBtnOnAction" text="Single Player" styleClass="main-menu-start-local-button"-->
+<!--                StackPane.alignment="BOTTOM_CENTER"/>-->
+    </VBox>
+    <Button onAction="#handleExitBtnOnAction" text="Exit" styleClass="main-menu-exit-button"
+            StackPane.alignment="TOP_RIGHT"/>
+    <stylesheets>
+        <URL value="@/battleship/stylesheet/default_styles.css"/>
+        <URL value="@/battleship/client/stylesheet/main_menu_styles.css"/>
+    </stylesheets>
+</StackPane>
